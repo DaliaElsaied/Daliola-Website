@@ -1,0 +1,143 @@
+/* --- 1. الـ CSS الأساسي --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* يمنع الـ scroll */
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+    
+    /* نفس الـ Gradient */
+    background: linear-gradient(to bottom, #ff8eb8, #ffd0ed);
+    
+    /* بديل الـ Column والـ Center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- 2. الـ CSS الخاص بالعناصر --- */
+
+.logo {
+    width: 190px; 
+    height: 190px;
+    border-radius: 100%;
+    background-color: white;
+    object-fit: cover;
+    box-shadow: 0 6px 60px rgba(231, 57, 115, 0.9);
+    
+    /* للتحكم في الأنيميشن */
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 0.6s ease-in, transform 0.6s ease-in;
+}
+
+.text-content {
+    margin-top: 25px;
+    font-weight: 600;
+    color: black;
+    font-size: 24px;
+    text-shadow: 2px 3px 5px rgba(150, 150, 150, 0.3);
+    
+    /* للتحكم في الأنيميشن */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.text-content p {
+    margin: 10px 0;
+}
+
+.button-container {
+    margin-top: 45px;
+    width: 80%;
+    max-width: 400px; /* <--- ده سطر مهم للتوافقية */
+    
+    /* للتحكم في الأنيميشن */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.link-button {
+    display: block;
+    width: 100%;
+    padding: 16px 0;
+    margin-bottom: 16px;
+    
+    background-color: #db2b66; /* (Colors.pink[400]) */
+    color: white;
+    
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    
+    transition: transform 0.2s ease;
+}
+.link-button:hover {
+    transform: scale(1.03);
+}
+
+.spacer {
+    flex-grow: 1; /* بياخد أي مساحة فاضية متبقية */
+}
+
+.footer {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54); /* (Colors.black54) */
+
+    /* للتحكم في الأنيميشن */
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+}
+
+/* --- 3. الـ CSS الخاص بالأنيميشن --- */
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --- 4. الإضافة الجديدة (قسم التوافقية) --- 
+ده الكود اللي هيخلي التصميم متجاوب مع شاشات الموبايل
+*/
+@media (max-width: 600px) {
+    
+    /* هنصغر اللوجو شوية */
+    .logo {
+        width: 150px; 
+        height: 150px;
+    }
+
+    /* هنصغر الخط بتاع النصوص */
+    .text-content {
+        font-size: 16px;
+    }
+
+    /* هنخلي الزراير تاخد عرض أكبر من الشاشة */
+    .button-container {
+        width: 90%;
+    }
+
+    /* هنصغر خط الزراير شوية */
+    .link-button {
+        font-size: 17px;
+        padding: 14px 0; /* هنقلل الـ padding شوية */
+    }
+
+    /* هنصغر خط الفوتر */
+    .footer {
+        font-size: 12px;
+    }
+}
